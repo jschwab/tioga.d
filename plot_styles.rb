@@ -3,25 +3,37 @@
 require 'Tioga/FigureMaker'
 
 module MyPlotStyles
-  
+
   include FigureConstants
-  
-  
+
+  def mycolors
+    return [BrightBlue, Goldenrod, FireBrick, RoyalPurple, Black, Teal, Coral, Lilac]
+  end
+
+  def paper_style(t = FigureMaker.default)
+    set_default_plot_style
+  end
+
+  def presentation_style(t = FigureMaker.default)
+    set_default_plot_style
+    t.tex_preamble += '\usepackage[math]{iwona}\n'
+    t.tex_preamble += '\usepackage[T1]{fontenc}\n'
+  end
+
   def sans_serif_style(t = FigureMaker.default)
     set_default_plot_style
     t.tex_fontfamily = 'sfdefault'
     t.xaxis_numeric_label_tex = '$\mathsf{#1}$'
     t.yaxis_numeric_label_tex = '$\mathsf{#1}$'
   end
-  
-  
+
   def set_default_plot_style(t = FigureMaker.default)
-    
+
   # Page size and margins
     # these default values are used by the default_enter_page_function
 
-    t.default_page_width = 72*5.5 # in big-points (1/72 inch)
-    t.default_page_height = 72*4.25 # in big-points (1/72 inch)
+    t.default_page_width = 72*4 # in big-points (1/72 inch)
+    t.default_page_height = 72*4 # in big-points (1/72 inch)
 
     t.default_frame_left = 0.15 # as fraction of width from left edge
     t.default_frame_right = 0.85 # as fraction of width from left edge
@@ -38,8 +50,8 @@ module MyPlotStyles
     t.stroke_opacity = 1
     t.fill_opacity = 1
 
-  # Markers   
-    t.marker_defaults = { 
+  # Markers
+    t.marker_defaults = {
         'fill_color' => Black,
         'stroke_color' => Black,
         'scale' => 1,
@@ -52,11 +64,11 @@ module MyPlotStyles
         'ascent_angle' => 0.0 }
 
   # TeX text
-    t.tex_preamble = '% start of preamble.  
+    t.tex_preamble = '% start of preamble.
         \usepackage[dvipsnames,usenames]{color} % need this for text colors
     '
 
-    t.tex_fontsize = '10.0'  
+    t.tex_fontsize = '10.0'
     t.tex_fontfamily = 'rmdefault'
     t.tex_fontseries = 'mddefault'
     t.tex_fontshape = 'updefault'
@@ -82,7 +94,7 @@ module MyPlotStyles
     t.title_color = Black
     t.title_justification = CENTERED
     t.title_position = 0.5
-    t.title_scale = 1.1
+    t.title_scale = 1.5
     t.title_shift = 0.7
     t.title_side = TOP
 
@@ -92,8 +104,8 @@ module MyPlotStyles
     t.xlabel_color = Black
     t.xlabel_justification = CENTERED
     t.xlabel_position = 0.5
-    t.xlabel_scale = 1.0
-    t.xlabel_shift = 1.7
+    t.xlabel_scale = 1.25
+    t.xlabel_shift = 2.2
     t.xlabel_side = BOTTOM
 
   # Yaxis Labels
@@ -102,12 +114,12 @@ module MyPlotStyles
     t.ylabel_color = Black
     t.ylabel_justification = CENTERED
     t.ylabel_position = 0.5
-    t.ylabel_scale = 1.0
-    t.ylabel_shift = 1.5
+    t.ylabel_scale = 1.25
+    t.ylabel_shift = 1.75
     t.ylabel_side = LEFT
 
   # Xaxis
-    t.xaxis_digits_max = 0 
+    t.xaxis_digits_max = 0
     t.xaxis_line_width = 1
     t.xaxis_loc = BOTTOM
     t.xaxis_log_values = false
@@ -121,7 +133,7 @@ module MyPlotStyles
     t.xaxis_numeric_label_angle = 0
     t.xaxis_numeric_label_decimal_digits
     t.xaxis_numeric_label_justification = CENTERED
-    t.xaxis_numeric_label_scale = 0.7
+    t.xaxis_numeric_label_scale = 1.0
     t.xaxis_numeric_label_shift = 0.3
     t.xaxis_numeric_label_tex = '$#1$'
     t.xaxis_stroke_color = Black
@@ -132,7 +144,7 @@ module MyPlotStyles
     t.xaxis_use_fixed_pt = false
 
   # Yaxis
-    t.yaxis_digits_max = 0 
+    t.yaxis_digits_max = 0
     t.yaxis_line_width = 1
     t.yaxis_loc = LEFT
     t.yaxis_log_values = false
@@ -146,8 +158,8 @@ module MyPlotStyles
     t.yaxis_numeric_label_angle = 0
     t.yaxis_numeric_label_decimal_digits = -1
     t.yaxis_numeric_label_justification = CENTERED
-    t.yaxis_numeric_label_scale = 0.7
-    t.yaxis_numeric_label_shift = 0.5
+    t.yaxis_numeric_label_scale = 1.0
+    t.yaxis_numeric_label_shift = 0.3
     t.yaxis_numeric_label_tex = '$#1$'
     t.yaxis_stroke_color = Black
     t.yaxis_ticks_inside = true
@@ -174,7 +186,7 @@ module MyPlotStyles
     t.legend_text_width = -1
     t.legend_text_xstart = 2.8
     t.legend_text_ystart = 2.0
-    t.legend_defaults = { 
+    t.legend_defaults = {
         'legend_top_margin' => 0.03,
         'legend_bottom_margin' => 0.03,
         'legend_left_margin' => 0.83,
