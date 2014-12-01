@@ -1,0 +1,15 @@
+* tioga.d
+** My Tioga Configuration
+My .tiogainit file
+#+BEGIN_SRC ruby
+  # go ahead and get some more stuff here
+  require "/home/jschwab/.tioga.d/load.rb"
+
+  # use an xpdf server to view output
+  # check ~/scripts/tiogapdf for details
+  $pdf_viewer = 'tiogapdf'
+#+END_SRC
+punts most of the configuration to the files in this repo, which live
+in .tioga.d.
+** Author
+Josiah Schwab <jschwab@gmail.com>
