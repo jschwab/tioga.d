@@ -3,8 +3,8 @@
 # my custom plot styles
 require_relative 'plot_styles.rb'
 
-# my custom plot styles
+# some handy functions
 require_relative 'tioga_utils.rb'
 
-# MESA_reader
+# Bill Wolf's MESA_reader
 require '/home/jschwab/Software/MESA_Reader/MESA_Reader.rb'

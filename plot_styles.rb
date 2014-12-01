@@ -7,7 +7,7 @@ module MyPlotStyles
   include FigureConstants
 
   def mycolors
-    return [BrightBlue, Goldenrod, FireBrick, RoyalPurple, Black, Teal, Coral, Lilac]
+    return [BrightBlue, Goldenrod, FireBrick, RoyalPurple, Teal, Coral, Lilac]
   end
 
   def paper_style(t = FigureMaker.default)
@@ -182,7 +182,7 @@ module MyPlotStyles
     t.legend_line_x0 = 0.5
     t.legend_line_x1 = 2.0
     t.legend_scale = 0.6
-    t.legend_text_dy = 1.9
+    t.legend_text_dy = 1.5
     t.legend_text_width = -1
     t.legend_text_xstart = 2.8
     t.legend_text_ystart = 2.0
