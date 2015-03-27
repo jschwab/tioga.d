@@ -178,7 +178,7 @@ module MyPlotStyles
     t.legend_alignment = ALIGNED_AT_BASELINE
     t.legend_justification = LEFT_JUSTIFIED
     t.legend_line_dy = 0.28
-    t.legend_line_width = -1
+    t.legend_line_width = 1.0
     t.legend_line_x0 = 0.5
     t.legend_line_x1 = 2.0
     t.legend_scale = 0.6
@@ -194,7 +194,7 @@ module MyPlotStyles
         'plot_top_margin' => 0.0,
         'plot_bottom_margin' => 0.0,
         'plot_left_margin' => 0.0,
-        'plot_right_margin' => 0.18,
+        'plot_right_margin' => 0.0,
         'plot_scale' => 1,
         'legend_scale' => 1 }
 

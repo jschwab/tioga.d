@@ -1,9 +1,17 @@
-def make_range(xr,yr)
-  return xr + yr.reverse
+def make_range(xr, yr)
+  xr + yr.reverse
 end
 
 def drange(min, max, npts)
-  return Dvector.new(npts) {|i| min + i/(npts-1e0) * (max - min)}
+  Dvector.new(npts) { |i| min + i / (npts - 1e0) * (max - min) }
+end
+
+def simple_colormap(rgb1, rgb2)
+  hls1 = t.rgb_to_hls(rgb1)
+  hls2 = t.rgb_to_hls(rgb2)
+  t.create_gradient_colormap(
+    'starting_H' => hls1[0], 'starting_L' => hls1[1], 'starting_S' => hls1[2],
+    'ending_H' => hls2[0], 'ending_L' => hls2[1], 'ending_S' => hls2[2])
 end
 
 def plot_boundaries(xs,ys,margin=0.1,ymin=nil,ymax=nil,
@@ -26,3 +34,8 @@ def plot_boundaries(xs,ys,margin=0.1,ymin=nil,ymax=nil,
   end
   return [ left_boundary, right_boundary, top_boundary, bottom_boundary ]
 end
+
+def colored_tex(tex, color)
+  '\textcolor[rgb]{%s,%s,%s}' % color + '{%s}' % [tex]
+end
+
